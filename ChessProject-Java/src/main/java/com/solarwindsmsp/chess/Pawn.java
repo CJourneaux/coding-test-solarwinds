@@ -4,6 +4,7 @@ public class Pawn extends Piece {
 
     public Pawn(PieceColor pieceColor, int xCoordinate, int yCoordinate, ChessBoard chessboard) {
         super(pieceColor, xCoordinate, yCoordinate, chessboard);
+        this.pieceType = PieceType.PAWN;
     }
 
     public void setChessBoard(ChessBoard chessBoard) {

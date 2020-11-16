@@ -6,6 +6,7 @@ public abstract class Piece {
 	protected int xCoordinate;
     protected int yCoordinate;
     protected ChessBoard chessBoard;
+    protected PieceType pieceType;
 	
 	public abstract void move(MovementType movementType, int newX, int newY);
 	
@@ -30,6 +31,10 @@ public abstract class Piece {
 
     public int getYCoordinate() {
         return this.yCoordinate;
+    }
+    
+    public PieceType getPieceType() {
+    	return this.pieceType;
     }
 
     public ChessBoard getChessBoard() {
