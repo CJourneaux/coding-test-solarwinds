@@ -11,11 +11,27 @@ public class ChessBoard {
         pieces = new Piece[MAX_BOARD_WIDTH][MAX_BOARD_HEIGHT];
     }
 
-    public void addPiece(Piece piece, int xCoordinate, int yCoordinate, PieceColor pieceColor) {
-        throw new UnsupportedOperationException("Need to implement ChessBoard.add()");
+    public void addPiece(PieceType pieceType, int xCoordinate, int yCoordinate, PieceColor pieceColor) {
+    	
+//    	if (!isEmptyPosition(xCoordinate, yCoordinate)) {
+//    		throw new UnsupportedOperationException("The position is already filled.");
+//    	}
+    	
+    	switch (pieceType) {
+	    	case PAWN:
+	    		this.pieces[xCoordinate][yCoordinate] = new Pawn(pieceColor, xCoordinate, yCoordinate, this);
+	    		break;
+			default:
+				throw new UnsupportedOperationException("Need to implement ChessBoard.addPiece() for the type " + pieceType);
+    	}
     }
-
+    
     public boolean isLegalBoardPosition(int xCoordinate, int yCoordinate) {
         throw new UnsupportedOperationException("Need to implement ChessBoard.IsLegalBoardPosition()");
+    }
+    
+    public boolean isEmptyPosition(int xCoordinate, int yCoordinate) {
+    	Piece currentPosition = this.pieces[xCoordinate][yCoordinate];
+    	return currentPosition == null;
     }
 }
